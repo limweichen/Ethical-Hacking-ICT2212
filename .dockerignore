@@ -1,0 +1,7 @@
+# Never copy these into the image
+.git
+secrets
+deploy
+*.md
+compose.yml
+release.sh

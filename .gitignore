@@ -1,0 +1,10 @@
+# Real settings files contain passwords, never commit them
+secrets/app.env
+
+*.log
+.DS_Store
+
+# Server-side state (only exists on EC2)
+deploy/backups/
+deploy/version.env
+deploy/history.log

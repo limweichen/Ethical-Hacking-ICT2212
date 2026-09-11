@@ -1,0 +1,44 @@
+# LOCAL DEVELOPMENT ONLY (your laptop).
+# Start:  docker compose up --build -d     -> http://localhost:8080
+# Stop:   docker compose down
+# Reset database:  docker compose down -v
+
+name: ict2212_student17
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: docker/web/Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - ./web:/var/www/html                      # live code edits, no rebuild needed
+      - ./db:/app/db:ro
+      - ./secrets/app.env:/secrets/app.env:ro
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  db:
+    image: mysql:8.0                             # EC2 has MySQL 8.0.46
+    environment:
+      # Must match DB_NAME / DB_USER / DB_PASS in secrets/app.env
+      MYSQL_DATABASE: ICT2212_STUDENT17_DB
+      MYSQL_USER: student17-sql
+      MYSQL_PASSWORD: ICT2212
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+    volumes:
+      - db-data:/var/lib/mysql
+    ports:
+      - "127.0.0.1:3306:3306"                    # for MySQL Workbench on your laptop
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+
+volumes:
+  db-data:

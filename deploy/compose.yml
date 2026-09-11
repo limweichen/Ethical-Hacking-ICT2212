@@ -1,0 +1,39 @@
+# PRODUCTION (EC2). Lives at ~/deploy/compose.yml on the server.
+# Don't run docker compose by hand; use update.sh / rollback.sh.
+# ${DB_*} come from /secrets/app.env, ${WEB_TAG} from version.env.
+
+name: ict2212_student17
+
+services:
+  web:
+    # ====== EDIT THIS (must match IMAGE_REPO in release.sh) ======
+    image: jiale291/ict2212_student17-web:${WEB_TAG:-latest}
+    # =============================================================
+    ports:
+      - "80:80"
+    volumes:
+      - /secrets/app.env:/secrets/app.env:ro
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASS}
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+    volumes:
+      - db-data:/var/lib/mysql                   # data survives version changes
+    # No ports: MySQL is only reachable from the web container
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+
+volumes:
+  db-data:
