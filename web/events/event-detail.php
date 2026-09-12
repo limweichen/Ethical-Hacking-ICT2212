@@ -47,7 +47,7 @@
 
 <?php if (!$event): ?>
 
-    // EVENT NOT FOUND
+    <!-- EVENT NOT FOUND -->
     <div class="page-header">
 
         <div>
@@ -105,7 +105,7 @@
         $timestamp >= time();
     ?>
 
-    // PAGE HEADER
+    <!-- PAGE HEADER -->
     <div class="page-header">
 
         <div>
@@ -126,7 +126,7 @@
 
     </div>
 
-    // EVENT DETAILS
+    <!-- EVENT DETAILS -->
     <div class="event-detail-card">
 
         <div class="event-detail-status">
@@ -196,7 +196,7 @@
 
         </div>
 
-        // DESCRIPTION
+        <!-- DESCRIPTION -->
         <div class="event-description">
 
             <h3>
@@ -219,7 +219,7 @@
 
         </div>
 
-        // ACTIONS
+        <!-- ACTIONS -->
         <div class="event-detail-actions">
 
             <a href="/events/edit-event.php?id=<?= $eventId ?>" class="btn btn-secondary">
@@ -238,7 +238,7 @@
 
     </div>
 
-    // DELETE FORM
+    <!-- DELETE FORM -->
     <form
         method="POST"
         action="/events/delete-event.php"
@@ -257,7 +257,7 @@
             value="<?= $eventId ?>"
         >
 
-        // DELETE MODAL
+        <!-- DELETE MODAL -->
         <div
             class="modal-overlay"
             id="deleteModal"

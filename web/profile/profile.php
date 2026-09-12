@@ -60,7 +60,7 @@
     require __DIR__ . '/../inc/header.php';
 ?>
 
-// PROFILE HEADER
+<!-- PROFILE HEADER -->
 <section class="welcome">
 
     <div>
@@ -82,11 +82,10 @@
 </section>
 
 
-// PROFILE LAYOUT
-
+<!-- PROFILE LAYOUT -->
 <section class="profile-grid">
 
-    // Profile summary
+    <!-- Profile summary -->
     <div class="panel profile-card">
 
         <div class="profile-avatar">
@@ -107,7 +106,7 @@
 
     </div>
 
-    // Personal information
+    <!-- Personal information -->
     <div class="panel">
 
         <div class="panel-header">
@@ -190,7 +189,7 @@
 
 </section>
 
-// SECURITY
+<!-- SECURITY -->
 <section class="panel profile-security">
 
     <div class="panel-header">
@@ -291,7 +290,7 @@
 
 </section>
 
-// EVENT OVERVIEW
+<!-- EVENT OVERVIEW -->
 <section class="stats profile-stats">
 
     <div class="stat-card">
@@ -336,5 +335,5 @@
 
 </section>
 
-// Use shared footer.
+<!-- Use shared footer. -->
 <?php require __DIR__ . '/../inc/footer.php'; ?>

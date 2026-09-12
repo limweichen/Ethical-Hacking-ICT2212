@@ -25,7 +25,7 @@
     require __DIR__ . '/../inc/header.php';
 ?>
 
-//PAGE HEADER
+<!-- PAGE HEADER -->
 <section class="welcome">
 
     <div>
@@ -50,7 +50,7 @@
 
 </section>
 
-// EVENTS
+<!-- EVENTS -->
 <section class="panel">
 
     <div class="panel-header">
@@ -181,7 +181,7 @@
 
 </section>
 
-// CREATE EVENT
+<!-- CREATE EVENT -->
 <section
     class="panel form-section"
     id="create-event"
@@ -316,7 +316,7 @@
 
 </section>
 
-// IMPORT EVENTS
+<!-- IMPORT EVENTS -->
 <section
     class="panel form-section"
     id="import-events"

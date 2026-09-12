@@ -171,7 +171,7 @@ require __DIR__ . '/inc/header.php';
 
 <section class="content-grid">
 
-    // Upcoming Events
+    <!-- Upcoming Events -->
     <div class="panel">
 
         <div class="panel-header">
@@ -282,7 +282,7 @@ require __DIR__ . '/inc/header.php';
     </div>
 
 
-    // Quick Actions
+    <!-- Quick Actions -->
     <div class="panel">
 
         <div class="panel-header">
