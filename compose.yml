@@ -13,9 +13,9 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./web:/var/www/html                      # live code edits, no rebuild needed
-      - ./db:/app/db:ro
-      - ./secrets/app.env:/secrets/app.env:ro
+      - ./web:/var/www/html:z                      # Added :z for SELinux
+      - ./db:/app/db:ro,z                         # Added :z for SELinux
+      - ./secrets:/secrets:ro,z                   # Mount whole folder with :z flag
     depends_on:
       db:
         condition: service_healthy
